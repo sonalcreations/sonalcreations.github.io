@@ -3,7 +3,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-BUCKET="botique.workingalien.com"
+BUCKET="sonalcreations.workingalien.com"
 DIST_ID="E29F8UJLC7S3R6"   # filled in by the one-time setup
 
 EXCLUDES=(--exclude ".git/*" --exclude ".gitignore" --exclude ".claude/*" --exclude ".DS_Store" --exclude "deploy.sh" --exclude "README.md" --exclude "*.log")
