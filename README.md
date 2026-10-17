@@ -53,9 +53,13 @@ Then open http://127.0.0.1:8080/.
 One-time setup, already done or to do with the AWS CLI:
 
 - Certificate: the existing `*.workingalien.com` certificate in `us-east-1` (ACM `de50c5f8-2668-44b8-afeb-b43a74abbb6c`) covers this subdomain.
-- S3 bucket `botique.workingalien.com` (private, no website hosting) in `ap-south-1`.
-- CloudFront distribution with Origin Access Control to that bucket, default root object `index.html`, HTTP redirected to HTTPS, alias `botique.workingalien.com`.
-- DNS: `workingalien.com` is not in Route 53 in this account. Add a CNAME at the registrar: `botique` -> the distribution's `*.cloudfront.net` domain (printed by the setup and stored in `deploy.sh`).
+- S3 bucket `botique.workingalien.com` (private, no website hosting) in `ap-south-1`. Done.
+- CloudFront distribution `E29F8UJLC7S3R6` (`d395h5e9cnixh2.cloudfront.net`) with Origin Access Control to that bucket, default root object `index.html`, HTTP redirected to HTTPS, alias `botique.workingalien.com`. Done.
+- DNS: `workingalien.com` is not in Route 53 in this account. Add this record at the registrar:
+
+  | Type | Name | Value | TTL |
+  |---|---|---|---|
+  | CNAME | `botique` | `d395h5e9cnixh2.cloudfront.net` | 300 |
 
 Deploy after any edit:
 
