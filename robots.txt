@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://botique.workingalien.com/sitemap.xml
