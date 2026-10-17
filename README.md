@@ -7,13 +7,11 @@ No build step. Edit `index.html` and `styles.css` directly, then run `./deploy.s
 
 ## Before launch
 
-1. **WhatsApp and phone number.** Every link uses the placeholder `91XXXXXXXXXX`. Replace it in one go (country code first, no plus, no spaces):
+1. **WhatsApp and phone number.** Set to +91 98494 62143. To change it, replace `919849462143` in every link in one go, then fix the visible `Call +91 ...` label in the Visit section by hand:
 
    ```bash
-   sed -i '' 's/91XXXXXXXXXX/919876543210/g' index.html
+   sed -i '' 's/919849462143/91NEWNUMBER/g' index.html
    ```
-
-   Then fix the visible label `Call +91 XXXXX XXXXX` in the Visit section by hand.
 
 2. **Photos.** Placeholders are Unsplash images and must be replaced with the boutique's own work. Drop files into `assets/img/` and update the `src` next to each `TODO` comment in `index.html`:
 
