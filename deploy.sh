@@ -4,9 +4,9 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 BUCKET="botique.workingalien.com"
-DIST_ID="__DIST_ID__"   # filled in by the one-time setup
+DIST_ID="E29F8UJLC7S3R6"   # filled in by the one-time setup
 
-EXCLUDES=(--exclude ".git/*" --exclude ".claude/*" --exclude ".DS_Store" --exclude "deploy.sh" --exclude "README.md" --exclude "*.log")
+EXCLUDES=(--exclude ".git/*" --exclude ".gitignore" --exclude ".claude/*" --exclude ".DS_Store" --exclude "deploy.sh" --exclude "README.md" --exclude "*.log")
 
 # Fonts and images: cache for a year. Everything else: 5 minutes, so edits show up quickly.
 aws s3 sync . "s3://$BUCKET" --delete "${EXCLUDES[@]}" \
