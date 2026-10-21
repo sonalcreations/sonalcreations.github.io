@@ -1,9 +1,9 @@
 # Sonal Creations Boutique website
 
 Single-page static site for Sonal Creations Boutique, Prakash Nagar, Begumpet, Hyderabad.
-Live at https://sonalcreations.workingalien.com/ (AWS S3 + CloudFront).
+Live at https://sonalcreations.github.io/ (GitHub Pages, repo `sonalcreations/sonalcreations.github.io`).
 
-No build step. Edit `index.html` and `styles.css` directly, then run `./deploy.sh`.
+No build step. Edit `index.html` and `styles.css` directly, commit, and push to `main`; GitHub Pages publishes within a minute or two.
 
 ## Before launch
 
@@ -46,23 +46,16 @@ python3 -m http.server 8080 --bind 127.0.0.1
 
 Then open http://127.0.0.1:8080/.
 
-## Hosting (AWS, account 135379837669)
+## Hosting (GitHub Pages)
 
-One-time setup, already done or to do with the AWS CLI:
-
-- Certificate: the existing `*.workingalien.com` certificate in `us-east-1` (ACM `de50c5f8-2668-44b8-afeb-b43a74abbb6c`) covers this subdomain.
-- S3 bucket `sonalcreations.workingalien.com` (private, no website hosting) in `ap-south-1`. Done.
-- CloudFront distribution `E29F8UJLC7S3R6` (`d395h5e9cnixh2.cloudfront.net`) with Origin Access Control to that bucket, default root object `index.html`, HTTP redirected to HTTPS, alias `sonalcreations.workingalien.com`. Done.
-- DNS: `workingalien.com` is not in Route 53 in this account. Add this record at the registrar:
-
-  | Type | Name | Value | TTL |
-  |---|---|---|---|
-  | CNAME | `sonalcreations` | `d395h5e9cnixh2.cloudfront.net` | 300 |
+The repo `sonalcreations/sonalcreations.github.io` is an organization site, so GitHub Pages serves the `main` branch root at https://sonalcreations.github.io/ with HTTPS. `.nojekyll` tells Pages to publish the files as they are.
 
 Deploy after any edit:
 
 ```bash
-./deploy.sh
+git add -A && git commit -m "Update site" && git push
 ```
 
-It syncs the folder to S3 (excluding git and editor files), sets long cache headers on `assets/` and short ones on HTML, and invalidates the CloudFront cache.
+Check the build under the repo's Actions tab (the "pages build and deployment" workflow) if a change does not show up after a couple of minutes.
+
+The earlier AWS setup (S3 bucket, CloudFront distribution, `sonalcreations.workingalien.com`) was removed on 2026-10-21. The CNAME for `sonalcreations` at the workingalien.com registrar should be deleted too.
