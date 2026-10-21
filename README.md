@@ -1,7 +1,7 @@
 # Sonal Creations Boutique website
 
 Single-page static site for Sonal Creations Boutique, Prakash Nagar, Begumpet, Hyderabad.
-Live at https://sonalcreations.github.io/ (GitHub Pages, repo `sonalcreations/sonalcreations.github.io`).
+Live at https://sonalcreations.workingalien.com/ (GitHub Pages, repo `sonalcreations/sonalcreations.github.io`; `sonalcreations.github.io` redirects there).
 
 No build step. Edit `index.html` and `styles.css` directly, commit, and push to `main`; GitHub Pages publishes within a minute or two.
 
@@ -48,7 +48,7 @@ Then open http://127.0.0.1:8080/.
 
 ## Hosting (GitHub Pages)
 
-The repo `sonalcreations/sonalcreations.github.io` is an organization site, so GitHub Pages serves the `main` branch root at https://sonalcreations.github.io/ with HTTPS. `.nojekyll` tells Pages to publish the files as they are.
+The repo `sonalcreations/sonalcreations.github.io` is an organization site, so GitHub Pages serves the `main` branch root. `.nojekyll` tells Pages to publish the files as they are. The `CNAME` file holds the custom domain; at the workingalien.com registrar a CNAME record `sonalcreations` points to `sonalcreations.github.io`, and HTTPS is enforced in the repo's Pages settings. The repo must stay public on the free plan.
 
 Deploy after any edit:
 
@@ -58,4 +58,4 @@ git add -A && git commit -m "Update site" && git push
 
 Check the build under the repo's Actions tab (the "pages build and deployment" workflow) if a change does not show up after a couple of minutes.
 
-The earlier AWS setup (S3 bucket, CloudFront distribution, `sonalcreations.workingalien.com`) was removed on 2026-10-21. The CNAME for `sonalcreations` at the workingalien.com registrar should be deleted too.
+The earlier AWS setup (S3 bucket, CloudFront distribution) was removed on 2026-10-21.

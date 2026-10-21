@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://sonalcreations.github.io/sitemap.xml
+Sitemap: https://sonalcreations.workingalien.com/sitemap.xml
