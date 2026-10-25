@@ -54,6 +54,20 @@
   font-display: swap;
   src: url("assets/fonts/dmsans-normal.woff2") format("woff2");
 }
+@font-face { font-family: "Tiro Telugu"; font-weight: 400 700; font-display: swap; src: url("assets/fonts/tirotelugu.woff2") format("woff2"); }
+@font-face { font-family: "Noto Sans Telugu"; font-weight: 400 600; font-display: swap; src: url("assets/fonts/notosanstelugu.woff2") format("woff2"); }
+@font-face { font-family: "Tiro Devanagari Hindi"; font-weight: 400 700; font-display: swap; src: url("assets/fonts/tirodevanagarihindi.woff2") format("woff2"); }
+@font-face { font-family: "Noto Sans Devanagari"; font-weight: 400 600; font-display: swap; src: url("assets/fonts/notosansdevanagari.woff2") format("woff2"); }
+
+/* Telugu and Hindi: Latin words (WhatsApp, Google, digits) keep the English fonts,
+   Indic glyphs fall through to the script font. Taller scripts need more line-height. */
+:root:lang(te) { --display: "Cormorant Garamond", "Tiro Telugu", serif; --body: "DM Sans", "Noto Sans Telugu", sans-serif; }
+:root:lang(hi) { --display: "Cormorant Garamond", "Tiro Devanagari Hindi", serif; --body: "DM Sans", "Noto Sans Devanagari", sans-serif; }
+:root:is(:lang(te), :lang(hi)) body { line-height: 1.75; }
+:root:is(:lang(te), :lang(hi)) :is(h1, h2, h3) { letter-spacing: 0; line-height: 1.4; }
+:root:is(:lang(te), :lang(hi)) h1 { font-size: clamp(2rem, 1.6vw + 1.1rem, 2.6rem); }
+:root:is(:lang(te), :lang(hi)) h1 em { font-style: normal; color: var(--green); }
+@media (prefers-color-scheme: dark) { :root:is(:lang(te), :lang(hi)) h1 em { color: var(--gold); } }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); -webkit-text-size-adjust: 100%; }
@@ -80,6 +94,10 @@ p { margin: 0; }
 .section > .wrap > h2 { margin-bottom: 2rem; }
 
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
 .skip {
   position: absolute; left: 1rem; top: -3rem; z-index: 20;
   background: var(--green); color: var(--on-green); padding: 0.6rem 1rem; border-radius: 999px;
@@ -100,8 +118,9 @@ p { margin: 0; }
 .btn--primary:hover { background: var(--green-deep); }
 .btn--ghost { border-color: var(--line); color: var(--ink); background: transparent; }
 .btn--ghost:hover { border-color: var(--ink); }
-.btn--light { background: var(--bg); color: var(--green); }
-.btn--light:hover { background: var(--surface); }
+/* Sits on the green band in both themes, so its colours do not follow the theme tokens */
+.btn--light { background: #f4f3ee; color: #1d4a3a; }
+.btn--light:hover { background: #e4e2da; }
 .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
 /* Nav */
@@ -109,15 +128,31 @@ p { margin: 0; }
   position: sticky; top: 0; z-index: 10;
   background: var(--bg); border-bottom: 1px solid var(--line);
 }
-.nav__in { height: var(--nav-h); display: flex; align-items: center; gap: 1.5rem; }
+.nav__in { height: var(--nav-h); display: flex; align-items: center; gap: 0.75rem; }
 .brand { font-family: var(--display); font-weight: 600; font-size: 1.5rem; text-decoration: none; letter-spacing: -0.01em; margin-right: auto; }
 .nav__links { display: none; gap: 1.75rem; }
 .nav__links a { text-decoration: none; color: var(--muted); font-weight: 500; }
 .nav__links a:hover { color: var(--ink); }
 .nav__cta { min-height: 44px; padding: 0 0.8rem; }
 .nav__cta span { display: none; }
-@media (min-width: 640px) { .nav__cta { padding: 0 1.2rem; } .nav__cta span { display: inline; } }
+@media (min-width: 640px) { .nav__in { gap: 1.5rem; } .nav__cta { padding: 0 1.2rem; } .nav__cta span { display: inline; } }
 @media (min-width: 900px) { .nav__links { display: flex; } }
+
+/* Language picker: native select, shown only when the script that drives it is running */
+.lang { display: none; position: relative; }
+.js .lang { display: inline-flex; }
+.lang select {
+  appearance: none; -webkit-appearance: none;
+  min-height: 44px; padding: 0 2rem 0 0.9rem; border-radius: 999px;
+  border: 1px solid var(--line); background: transparent; color: var(--ink);
+  font: inherit; font-weight: 500; font-size: 0.95rem; cursor: pointer;
+}
+.lang select:hover { border-color: var(--ink); }
+.lang::after {
+  content: ""; position: absolute; right: 0.95rem; top: 50%; pointer-events: none;
+  width: 0.4rem; height: 0.4rem; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: translateY(-70%) rotate(45deg);
+}
 
 /* Hero */
 .hero { padding-block: clamp(2.5rem, 5vw, 5rem) clamp(3rem, 6vw, 6rem); }

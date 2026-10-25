@@ -63,19 +63,27 @@
   <symbol id="i-star" viewBox="0 0 256 256"><path fill="currentColor" d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></symbol>
 </svg>
 
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
 <header class="nav">
   <div class="wrap nav__in">
     <a class="brand" href="#top">Sonal Creations</a>
     <nav class="nav__links" aria-label="Sections">
-      <a href="#collections">Collections</a>
-      <a href="#services">Services</a>
-      <a href="#offers">Offers</a>
-      <a href="#visit">Visit</a>
+      <a href="#collections" data-i18n="navCollections">Collections</a>
+      <a href="#services" data-i18n="navServices">Services</a>
+      <a href="#offers" data-i18n="offers">Offers</a>
+      <a href="#visit" data-i18n="navVisit">Visit</a>
     </nav>
-    <a class="btn btn--primary nav__cta" href="https://wa.me/919849462143?text=Hi%20Sonal%20Creations%2C%20I%20want%20to%20ask%20about%20stitching." aria-label="Chat on WhatsApp">
-      <svg aria-hidden="true"><use href="#i-wa"/></svg><span>Chat on WhatsApp</span>
+    <label class="lang">
+      <span class="visually-hidden" data-i18n="langLabel">Language</span>
+      <select id="lang">
+        <option value="en" lang="en">English</option>
+        <option value="te" lang="te">తెలుగు</option>
+        <option value="hi" lang="hi">हिन्दी</option>
+      </select>
+    </label>
+    <a class="btn btn--primary nav__cta" href="https://wa.me/919849462143?text=Hi%20Sonal%20Creations%2C%20I%20want%20to%20ask%20about%20stitching." aria-label="Chat on WhatsApp" data-i18n-label="ctaWa" data-i18n-wa="waStitch">
+      <svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="ctaWa">Chat on WhatsApp</span>
     </a>
   </div>
 </header>
@@ -84,13 +92,13 @@
   <section class="hero" id="top">
     <div class="wrap hero__grid">
       <div class="hero__copy">
-        <h1>Blouses, sarees and bridal wear, <em>stitched to fit you.</em></h1>
-        <p class="lead">A women's boutique in Prakash Nagar, Begumpet. Share a design on WhatsApp, visit for measurements, collect on the agreed date.</p>
+        <h1><span data-i18n="heroTitle">Blouses, sarees and bridal wear,</span> <em data-i18n="heroTitleEm">stitched to fit you.</em></h1>
+        <p class="lead" data-i18n="heroLead">A women's boutique in Prakash Nagar, Begumpet. Share a design on WhatsApp, visit for measurements, collect on the agreed date.</p>
         <div class="actions">
-          <a class="btn btn--primary" href="https://wa.me/919849462143?text=Hi%20Sonal%20Creations%2C%20I%20want%20to%20ask%20about%20stitching.">
-            <svg aria-hidden="true"><use href="#i-wa"/></svg>Chat on WhatsApp
+          <a class="btn btn--primary" href="https://wa.me/919849462143?text=Hi%20Sonal%20Creations%2C%20I%20want%20to%20ask%20about%20stitching." data-i18n-wa="waStitch">
+            <svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="ctaWa">Chat on WhatsApp</span>
           </a>
-          <a class="btn btn--ghost" href="#visit">Visit the boutique</a>
+          <a class="btn btn--ghost" href="#visit" data-i18n="visitTitle">Visit the boutique</a>
         </div>
       </div>
       <figure class="hero__media">
@@ -102,30 +110,30 @@
 
   <section class="section" id="collections">
     <div class="wrap">
-      <h2>What we make</h2>
+      <h2 data-i18n="collTitle">What we make</h2>
       <div class="bento reveal">
         <article class="tile tile--lg">
           <!-- TODO replace with assets/img/bridal.jpg (900x1200) -->
           <img src="https://images.unsplash.com/photo-1610173827043-9db50e0d8ef9?auto=format&fit=crop&w=900&h=1200&q=75" width="900" height="1200" alt="Bride in a red lehenga with gold embroidery and henna" loading="lazy" decoding="async">
           <div class="tile__text">
-            <h3>Bridal and occasion wear</h3>
-            <p>Lehengas, bridal blouses and reception outfits, built around your fabric or ours, with fittings before the big day.</p>
+            <h3 data-i18n="bridalTitle">Bridal and occasion wear</h3>
+            <p data-i18n="bridalText">Lehengas, bridal blouses and reception outfits, built around your fabric or ours, with fittings before the big day.</p>
           </div>
         </article>
         <article class="tile">
           <!-- TODO replace with assets/img/blouses.jpg (900x675) -->
           <img src="https://images.unsplash.com/photo-1787753650892-57cab14854f4?auto=format&fit=crop&w=900&h=675&q=75" width="900" height="675" alt="Red embroidered blouse with an embellished skirt" loading="lazy" decoding="async">
           <div class="tile__text">
-            <h3>Designer blouses and maggam work</h3>
-            <p>Hand embroidery, aari work, cut-work and lining done in-house. Bring the saree, we match it.</p>
+            <h3 data-i18n="blouseTitle">Designer blouses and maggam work</h3>
+            <p data-i18n="blouseText">Hand embroidery, aari work, cut-work and lining done in-house. Bring the saree, we match it.</p>
           </div>
         </article>
         <article class="tile">
           <!-- TODO replace with assets/img/sarees.jpg (900x675) -->
           <img src="https://images.unsplash.com/photo-1679006831648-7c9ea12e5807?auto=format&fit=crop&w=900&h=675&q=75" width="900" height="675" alt="Woman wearing a green saree and jewellery" loading="lazy" decoding="async">
           <div class="tile__text">
-            <h3>Sarees and ethnic wear</h3>
-            <p>Ready-to-drape sarees, kurtis and dress materials, with fall, pico and blouse stitching on the same order.</p>
+            <h3 data-i18n="sareeTitle">Sarees and ethnic wear</h3>
+            <p data-i18n="sareeText">Ready-to-drape sarees, kurtis and dress materials, with fall, pico and blouse stitching on the same order.</p>
           </div>
         </article>
       </div>
@@ -134,30 +142,30 @@
 
   <section class="section" id="services">
     <div class="wrap services__grid reveal">
-      <h2>How it works</h2>
+      <h2 data-i18n="howTitle">How it works</h2>
       <ol class="steps">
         <li>
-          <h3>Share your design on WhatsApp</h3>
-          <p>Send a photo, a reel or just the occasion. We reply with what is possible and a rough price.</p>
+          <h3 data-i18n="step1Title">Share your design on WhatsApp</h3>
+          <p data-i18n="step1Text">Send a photo, a reel or just the occasion. We reply with what is possible and a rough price.</p>
         </li>
         <li>
-          <h3>Visit for measurements and fabric</h3>
-          <p>Measurements are taken at the boutique. Bring your own fabric or pick from ours.</p>
+          <h3 data-i18n="step2Title">Visit for measurements and fabric</h3>
+          <p data-i18n="step2Text">Measurements are taken at the boutique. Bring your own fabric or pick from ours.</p>
         </li>
         <li>
-          <h3>Fitting and collection on the agreed date</h3>
-          <p>We fix the date before stitching starts and do a trial fitting when the outfit needs one.</p>
+          <h3 data-i18n="step3Title">Fitting and collection on the agreed date</h3>
+          <p data-i18n="step3Text">We fix the date before stitching starts and do a trial fitting when the outfit needs one.</p>
         </li>
         <li>
-          <h3>Alterations on anything we stitch</h3>
-          <p>Small adjustments after delivery are part of the service.</p>
+          <h3 data-i18n="step4Title">Alterations on anything we stitch</h3>
+          <p data-i18n="step4Text">Small adjustments after delivery are part of the service.</p>
         </li>
       </ol>
     </div>
   </section>
 
   <section class="section gallery" aria-labelledby="gallery-h">
-    <div class="wrap"><h2 id="gallery-h">Recent work</h2></div>
+    <div class="wrap"><h2 id="gallery-h" data-i18n="workTitle">Recent work</h2></div>
     <div class="strip reveal">
       <!-- TODO replace the six images below with assets/img/work-1.jpg to work-6.jpg (600x750), your own photos -->
       <figure><img src="https://images.unsplash.com/photo-1654764746225-e63f5e90facd?auto=format&fit=crop&w=600&h=750&q=75" width="600" height="750" alt="Red and gold bridal outfit" loading="lazy" decoding="async"></figure>
@@ -171,8 +179,8 @@
 
   <section class="section band" id="offers">
     <div class="wrap band__in reveal">
-      <h2>Offers</h2>
-      <p>Festive and bridal-season offers change often. Message us for what is on this week.</p>
+      <h2 data-i18n="offers">Offers</h2>
+      <p data-i18n="offersText">Festive and bridal-season offers change often. Message us for what is on this week.</p>
       <!-- To show a fixed offer, remove this comment block and edit the text:
       <div class="offer">
         <h3>Opening offer</h3>
@@ -180,8 +188,8 @@
         <small>Valid till 30 November 2026. Mention this page on WhatsApp.</small>
       </div>
       -->
-      <a class="btn btn--light" href="https://wa.me/919849462143?text=Hi%20Sonal%20Creations%2C%20what%20offers%20are%20running%20right%20now%3F">
-        <svg aria-hidden="true"><use href="#i-wa"/></svg>Chat on WhatsApp
+      <a class="btn btn--light" href="https://wa.me/919849462143?text=Hi%20Sonal%20Creations%2C%20what%20offers%20are%20running%20right%20now%3F" data-i18n-wa="waOffers">
+        <svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="ctaWa">Chat on WhatsApp</span>
       </a>
     </div>
   </section>
@@ -189,36 +197,36 @@
   <section class="rating" aria-label="Google rating">
     <div class="wrap rating__in">
       <svg aria-hidden="true"><use href="#i-star"/></svg>
-      <span>Rated 5.0 on Google</span>
-      <a href="https://maps.google.com/?cid=14000231627317705148" target="_blank" rel="noopener">Read or write a review</a>
+      <span data-i18n="rating">Rated 5.0 on Google</span>
+      <a href="https://maps.google.com/?cid=14000231627317705148" target="_blank" rel="noopener" data-i18n="review">Read or write a review</a>
     </div>
   </section>
 
   <section class="section" id="visit">
     <div class="wrap visit__grid reveal">
       <div class="visit__info">
-        <h2>Visit the boutique</h2>
+        <h2 data-i18n="visitTitle">Visit the boutique</h2>
         <address>
           <svg aria-hidden="true"><use href="#i-pin"/></svg>
           <span>1-8-505/4, Prakash Nagar,<br>Begumpet, Hyderabad, Telangana 500016</span>
         </address>
         <table class="hours">
-          <caption class="visually-hidden" style="position:absolute;left:-9999px">Opening hours</caption>
+          <caption class="visually-hidden" data-i18n="hoursCaption">Opening hours</caption>
           <tbody>
-            <tr><td>Monday to Saturday</td><td>11 AM to 8 PM</td></tr>
-            <tr><td>Sunday</td><td>Closed</td></tr>
+            <tr><td data-i18n="monSat">Monday to Saturday</td><td data-i18n="hours">11 AM to 8 PM</td></tr>
+            <tr><td data-i18n="sunday">Sunday</td><td data-i18n="closed">Closed</td></tr>
           </tbody>
         </table>
-        <p><a href="tel:+919849462143">Call +91 98494 62143</a></p>
+        <p><a href="tel:+919849462143"><span data-i18n="call">Call</span> +91 98494 62143</a></p>
         <div class="actions">
-          <a class="btn btn--primary" href="https://wa.me/919849462143?text=Hi%20Sonal%20Creations%2C%20I%20would%20like%20to%20book%20a%20time%20to%20visit.">
-            <svg aria-hidden="true"><use href="#i-wa"/></svg>Chat on WhatsApp
+          <a class="btn btn--primary" href="https://wa.me/919849462143?text=Hi%20Sonal%20Creations%2C%20I%20would%20like%20to%20book%20a%20time%20to%20visit." data-i18n-wa="waVisit">
+            <svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="ctaWa">Chat on WhatsApp</span>
           </a>
-          <a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&destination=17.4393491,78.4700803" target="_blank" rel="noopener">Get directions</a>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&destination=17.4393491,78.4700803" target="_blank" rel="noopener" data-i18n="directions">Get directions</a>
         </div>
       </div>
       <div class="visit__map">
-        <iframe title="Map showing Sonal Creations Boutique in Prakash Nagar, Begumpet" src="https://www.google.com/maps?q=17.4393491,78.4700803&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <iframe data-i18n-label="mapLabel" title="Map showing Sonal Creations Boutique in Prakash Nagar, Begumpet" src="https://www.google.com/maps?q=17.4393491,78.4700803&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -236,7 +244,7 @@
   </div>
 </footer>
 
-<a class="fab" href="https://wa.me/919849462143?text=Hi%20Sonal%20Creations%2C%20I%20want%20to%20ask%20about%20stitching." aria-label="Chat on WhatsApp">
+<a class="fab" href="https://wa.me/919849462143?text=Hi%20Sonal%20Creations%2C%20I%20want%20to%20ask%20about%20stitching." aria-label="Chat on WhatsApp" data-i18n-label="ctaWa" data-i18n-wa="waStitch">
   <svg aria-hidden="true"><use href="#i-wa"/></svg>
 </a>
 

@@ -34,6 +34,19 @@ No build step. Edit `index.html` and `styles.css` directly, commit, and push to 
 
 In the Offers section of `index.html` there is a commented-out `<div class="offer">`. Remove the comment markers and edit the title, line and validity. To go back to "ask on WhatsApp", comment it out again.
 
+## Languages (English, Telugu, Hindi)
+
+The language picker in the top bar switches the page between English, Telugu and Hindi without reloading. The choice is remembered on that device, and the address bar gains `?lang=te` or `?lang=hi`, so a shared link opens in the same language (for example https://sonalcreations.workingalien.com/?lang=te).
+
+- **English** text lives in `index.html`. Edit it there as before.
+- **Telugu and Hindi** text lives at the top of `script.js`, in `I18N.te` and `I18N.hi`. Each key matches a `data-i18n` attribute in `index.html`. A key missing from a language falls back to English.
+- **New text that should be translated:** add `data-i18n="someKey"` to the element in `index.html`, then add `someKey` to both `I18N.te` and `I18N.hi`.
+- **WhatsApp messages** are translated too (`waStitch`, `waOffers`, `waVisit`), so a Telugu visitor's chat opens with a Telugu message.
+- **Not translated on purpose:** the brand name, the street address, the image descriptions (they will change when real photos arrive), and the search-engine description in `<head>`.
+- **Fonts:** Telugu and Hindi use Tiro and Noto Sans, self-hosted in `assets/fonts/`. They download only when someone picks that language.
+
+The translations were written for this site and have not been reviewed by a native speaker yet. Have someone fluent in Telugu and Hindi read through `script.js` before promoting the site in those languages.
+
 ## Google rating
 
 The line "Rated 5.0 on Google" is hardcoded. Update it if the rating on the Maps listing changes.
